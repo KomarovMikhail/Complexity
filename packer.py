@@ -57,9 +57,16 @@ class Packer:
         else:
             chunk_len = len(more_eps) / k
             i = 0
+            j = 0
             while i < len(more_eps):
-                chunks.append([more_eps[i]])
-                i += 1
+                chunk = []
+                while j < chunk_len:
+                    chunk.append(more_eps[i])
+                    i += 1
+                    j += 1
+                    if i >= len(more_eps):
+                        break
+                chunks.append(chunk)
 
         # step 3,
 
